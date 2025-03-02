@@ -8,10 +8,15 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 public class Airplane : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
-    [SerializeField] float enginePower = 20f;
+    [SerializeField] float enginePower = 50f;
     [SerializeField] float liftBooster = 0.5f;
-    [SerializeField] float drag = 0.001f;
-    [SerializeField] float angularDrag = 0.01f;
+    [SerializeField] float drag = 0.003f;
+    [SerializeField] float angularDrag = 0.03f;
+
+
+    [SerializeField] float yawPower = 50f;     // Turning speed
+    [SerializeField] float pitchPower = 50f;   // Nose up/down speed
+    [SerializeField] float rollPower = 30f;
 
     private void Start()
     {
@@ -29,9 +34,11 @@ public class Airplane : MonoBehaviour
         }
 
         //2. add  Lift Force (Aerodynamics)
-        //Uses Vector3.Project to extract the forward velocity component(rb.velocity)
+        //Uses Vector3.Project to extract the forward speed of the airplain
+        //The faster the airplane moves forward, the greater the lift force.
         //Multiplies by liftBooster to apply upward force(transform.up)
-        //Simulates airplane lift: Faster speeds create more lift, making the airplane rise.
+        //Simulates airplane lift: Faster speeds create more lift, making 
+        //the airplane rise.
         Vector3 lift = Vector3.Project(rb.velocity, transform.forward);
         rb.AddForce(transform.up * lift.magnitude * liftBooster);
 
@@ -49,5 +56,14 @@ public class Airplane : MonoBehaviour
         //Uses left/right input(Horizontal axis) to apply force against the forward direction
         //Simulates turning resistance (airplane doesn't instantly turn, it resists change)
         rb.AddTorque(Input.GetAxis("Vertical") * transform.right);
+
     }
 }
+// **Use Torque for Better Rotation Control**
+/*        float yaw = Input.GetAxis("Horizontal") * yawPower;
+        float pitch = Input.GetAxis("Vertical") * pitchPower;
+        float roll = Input.GetAxis("Roll") * rollPower;  // Add roll control (e.g., A/D keys)
+
+        rb.AddTorque(transform.up * yaw);     // Yaw (turn left/right)
+        rb.AddTorque(transform.right * pitch); // Pitch (nose up/down)
+        rb.AddTorque(transform.forward * roll); // Roll (barrel roll)*/

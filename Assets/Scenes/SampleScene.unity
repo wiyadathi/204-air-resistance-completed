@@ -513,10 +513,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  enginePower: 20
+  enginePower: 50
   liftBooster: 0.5
-  drag: 0.001
-  angularDrag: 0.01
+  drag: 0.005
+  angularDrag: 0.05
+  yawPower: 50
+  pitchPower: 50
+  rollPower: 30
 --- !u!54 &2057510242
 Rigidbody:
   m_ObjectHideFlags: 0
