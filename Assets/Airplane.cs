@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
@@ -9,10 +8,10 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 public class Airplane : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
-    [SerializeField] float enginePower = 100f;
+    [SerializeField] float enginePower = 20f;
     [SerializeField] float liftBooster = 0.5f;
     [SerializeField] float drag = 0.001f;
-    [SerializeField] float angularDrag = 0.001f;
+    [SerializeField] float angularDrag = 0.01f;
 
     private void Start()
     {
@@ -44,11 +43,11 @@ public class Airplane : MonoBehaviour
         rb.angularDrag = rb.velocity.magnitude * angularDrag;
 
         //control rotation
-        rb.AddForce(Input.GetAxis("Horizontal") * transform.forward * -1);
+        rb.AddTorque(Input.GetAxis("Horizontal") * transform.forward * -1f);
 
         //Yaw Control (Turning Left/Right)
         //Uses left/right input(Horizontal axis) to apply force against the forward direction
         //Simulates turning resistance (airplane doesn't instantly turn, it resists change)
-        rb.AddForce(Input.GetAxis("Vertical") * transform.right);
+        rb.AddTorque(Input.GetAxis("Vertical") * transform.right);
     }
 }
