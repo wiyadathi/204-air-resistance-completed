@@ -202,6 +202,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2250861789715658586, guid: 2ff8c8d06f9ed614c9f3b44837944535, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2057510241}
+    - targetCorrespondingSourceObject: {fileID: 2250861789715658586, guid: 2ff8c8d06f9ed614c9f3b44837944535, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2057510245}
   m_SourcePrefab: {fileID: 100100000, guid: 2ff8c8d06f9ed614c9f3b44837944535, type: 3}
 --- !u!1 &705507993
 GameObject:
@@ -515,8 +518,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   enginePower: 50
   liftBooster: 0.5
-  drag: 0.005
-  angularDrag: 0.05
+  drag: 0.003
+  angularDrag: 0.03
   yawPower: 50
   pitchPower: 50
   rollPower: 30
@@ -573,6 +576,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2008703924599250498, guid: 2ff8c8d06f9ed614c9f3b44837944535, type: 3}
   m_PrefabInstance: {fileID: 553135638}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2057510245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057510239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00dde006786fbd4f806ac4ada2b9e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  enginePower: 50
+  liftBooster: 0.5
+  drag: 0.003
+  angularDrag: 0.03
+  yawPower: 50
+  pitchPower: 50
+  rollPower: 30
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
