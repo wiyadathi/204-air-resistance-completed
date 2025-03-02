@@ -49,16 +49,15 @@ public class Airplane : MonoBehaviour
         rb.drag = rb.velocity.magnitude * drag;
         rb.angularDrag = rb.velocity.magnitude * angularDrag;
 
-        //control rotation
-        rb.AddTorque(Input.GetAxis("Horizontal") * transform.forward * -1f);
-
         //Yaw Control (Turning Left/Right)
         //Uses left/right input(Horizontal axis) to apply force against the forward direction
         //Simulates turning resistance (airplane doesn't instantly turn, it resists change)
+        rb.AddTorque(Input.GetAxis("Horizontal") * transform.forward * -1f);
         rb.AddTorque(Input.GetAxis("Vertical") * transform.right);
 
     }
 }
+
 // **Use Torque for Better Rotation Control**
 /*        float yaw = Input.GetAxis("Horizontal") * yawPower;
         float pitch = Input.GetAxis("Vertical") * pitchPower;
