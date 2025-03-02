@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using TreeEditor;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class Airplane : MonoBehaviour
 {
@@ -18,24 +21,34 @@ public class Airplane : MonoBehaviour
 
     void FixedUpdate()
     {
-        //add trust force
+        //add Thrust (Engine Power)
+        //Pressing Spacebar applies force in the forward direction of the airplane(transform.forward).
+        //Simulates engine thrust, making the airplane accelerate forward.
         if (Input.GetKey(KeyCode.Space))
         {
             rb.AddForce(transform.forward * enginePower);        
-        } 
+        }
 
-        //2. add lift
+        //2. add  Lift Force (Aerodynamics)
+        //Uses Vector3.Project to extract the forward velocity component(rb.velocity)
+        //Multiplies by liftBooster to apply upward force(transform.up)
+        //Simulates airplane lift: Faster speeds create more lift, making the airplane rise.
         Vector3 lift = Vector3.Project(rb.velocity, transform.forward);
         rb.AddForce(transform.up * lift.magnitude * liftBooster);
 
-        //3. Drag
+        //3. Drag (Air resistance)
+        //rb.drag increases as speed increases, simulating air resistance
+        //rb.angularDrag increases with speed, making turning harder at high speeds
+        //Prevents infinite acceleration and makes controls feel realistic.
         rb.drag = rb.velocity.magnitude * drag;
         rb.angularDrag = rb.velocity.magnitude * angularDrag;
 
         //control rotation
         rb.AddForce(Input.GetAxis("Horizontal") * transform.forward * -1);
 
-        //control up and down
+        //Yaw Control (Turning Left/Right)
+        //Uses left/right input(Horizontal axis) to apply force against the forward direction
+        //Simulates turning resistance (airplane doesn't instantly turn, it resists change)
         rb.AddForce(Input.GetAxis("Vertical") * transform.right);
     }
 }
