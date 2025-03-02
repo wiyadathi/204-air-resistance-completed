@@ -34,8 +34,7 @@ public class AirplaneV2 : MonoBehaviour
         //Uses Vector3.Project to extract the forward speed of the airplain
         //The faster the airplane moves forward, the greater the lift force.
         //Multiplies by liftBooster to apply upward force(transform.up)
-        //Simulates airplane lift: Faster speeds create more lift, making 
-        //the airplane rise.
+        //Simulates airplane lift: Faster speeds create more lift, making the airplane rise.
         Vector3 lift = Vector3.Project(rb.velocity, transform.forward);
         rb.AddForce(transform.up * lift.magnitude * liftBooster);
 
