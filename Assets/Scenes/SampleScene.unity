@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: a4be220830e90ea4eb88b48b7fd376ce, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -188,17 +188,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2008703924599250498, guid: 2ff8c8d06f9ed614c9f3b44837944535, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 963194228}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2250861789715658586, guid: 2ff8c8d06f9ed614c9f3b44837944535, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2057510243}
     - targetCorrespondingSourceObject: {fileID: 2250861789715658586, guid: 2ff8c8d06f9ed614c9f3b44837944535, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2057510242}
     - targetCorrespondingSourceObject: {fileID: 2250861789715658586, guid: 2ff8c8d06f9ed614c9f3b44837944535, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2057510241}
-    - targetCorrespondingSourceObject: {fileID: 2250861789715658586, guid: 2ff8c8d06f9ed614c9f3b44837944535, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2057510243}
   m_SourcePrefab: {fileID: 100100000, guid: 2ff8c8d06f9ed614c9f3b44837944535, type: 3}
 --- !u!1 &705507993
 GameObject:
@@ -380,11 +383,11 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.14887209, y: -0, z: -0, w: 0.9888565}
-  m_LocalPosition: {x: 0, y: 8.63, z: -15.61}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 22.78, z: -33.64}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2057510244}
   m_LocalEulerAnglesHint: {x: 17.123, y: 0, z: 0}
 --- !u!1 &1920696252
 GameObject:
@@ -513,7 +516,7 @@ MonoBehaviour:
   enginePower: 20
   liftBooster: 0.5
   drag: 0.001
-  angularDrag: 0.001
+  angularDrag: 0.01
 --- !u!54 &2057510242
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -562,11 +565,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 16.57, y: 5.3, z: 33.02}
   m_Center: {x: 0, y: 3.12, z: 0}
+--- !u!4 &2057510244 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2008703924599250498, guid: 2ff8c8d06f9ed614c9f3b44837944535, type: 3}
+  m_PrefabInstance: {fileID: 553135638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1920696256}
   - {fileID: 553135638}
